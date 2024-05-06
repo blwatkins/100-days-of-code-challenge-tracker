@@ -1,0 +1,66 @@
+{
+  "name": "generative-art-project-template",
+  "version": "2.0.0",
+  "description": "A template for new brittni and the polar bear generative art projects using TypeScript with p5.js",
+  "main": "",
+  "scripts": {
+    "build": "rm -r ./out; rollup --config",
+    "start": "rm -r ./out; rollup --config --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brittni-and-the-polar-bear/generative-art-project-template.git"
+  },
+  "keywords": [
+    "code art",
+    "generative art",
+    "p5",
+    "p5.js",
+    "p5js",
+    "template",
+    "typescript"
+  ],
+  "author": {
+    "name": "brittni and the polar bear",
+    "url": "https://linktr.ee/brittniandthepolarbear"
+  },
+  "contributors": [
+    {
+      "name": "brittni watkins",
+      "url": "https://linktr.ee/brittniwatkins"
+    },
+    {
+      "name": "azurepolarbear",
+      "url": "https://linktr.ee/azurepolarbear"
+    }
+  ],
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/brittni-and-the-polar-bear/generative-art-project-template/issues"
+  },
+  "homepage": "https://github.com/brittni-and-the-polar-bear/generative-art-project-template#readme",
+  "dependencies": {
+    "@batpb/genart": "^0.5.0",
+    "@types/p5": "^1.7.6",
+    "p5": "^1.9.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-html": "^1.0.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@size-limit/preset-big-lib": "^11.1.2",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "rollup": "^4.17.0",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-css-only": "^4.5.2",
+    "rollup-plugin-serve": "^1.1.1",
+    "rollup-plugin-ts": "^3.4.5",
+    "size-limit": "^11.1.2",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  }
+}
