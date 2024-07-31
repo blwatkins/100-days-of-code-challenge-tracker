@@ -1,21 +1,16 @@
-# Generative Art Project Template
+# 100 Days of Code Challenge Tracker
 
 Copyright (C) 2023-2024 brittni and the polar bear LLC.
 
-A template for new brittni and the polar bear generative art projects using [TypeScript](https://www.typescriptlang.org/) with [p5.js](https://p5js.org/).
+A project for creating fun graphics to publish while tracking my #100DaysofCode challenges.
 
-This template also uses the brittni and the polar bear generative art
-library: [@batpb/genart](https://www.npmjs.com/package/@batpb/genart).
+## Summary and Statistics
 
-## Summary
+![GitHub followers](https://img.shields.io/github/followers/blwatkins)
+![GitHub Repo stars](https://img.shields.io/github/stars/blwatkins/100-days-of-code-challenge-tracker)
+![GitHub watchers](https://img.shields.io/github/watchers/blwatkins/100-days-of-code-challenge-tracker)
 
-[![CodeQL](https://github.com/brittni-and-the-polar-bear/generative-art-project-template/actions/workflows/codeql.yml/badge.svg)](https://github.com/brittni-and-the-polar-bear/generative-art-project-template/actions/workflows/codeql.yml)
-
-![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/brittni-and-the-polar-bear/generative-art-project-template) ![GitHub License](https://img.shields.io/github/license/brittni-and-the-polar-bear/generative-art-project-template)
-
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/brittni-and-the-polar-bear/generative-art-project-template/latest)
-
-![GitHub contributors](https://img.shields.io/github/contributors-anon/brittni-and-the-polar-bear/generative-art-project-template)
+![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/blwatkins/100-days-of-code-challenge-tracker) ![GitHub License](https://img.shields.io/github/license/blwatkins/100-days-of-code-challenge-tracker)
 
 ## LICENSE Information
 
