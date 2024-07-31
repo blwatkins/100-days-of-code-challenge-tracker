@@ -10,7 +10,8 @@ A project for creating fun graphics to publish while tracking my #100DaysofCode 
 ![GitHub Repo stars](https://img.shields.io/github/stars/blwatkins/100-days-of-code-challenge-tracker)
 ![GitHub watchers](https://img.shields.io/github/watchers/blwatkins/100-days-of-code-challenge-tracker)
 
-get codeql / get nodejs
+[![CodeQL](https://github.com/blwatkins/100-days-of-code-challenge-tracker/actions/workflows/codeql.yml/badge.svg)](https://github.com/blwatkins/100-days-of-code-challenge-tracker/actions/workflows/codeql.yml)
+[![Node.js Build](https://github.com/blwatkins/100-days-of-code-challenge-tracker/actions/workflows/node-build.yml/badge.svg)](https://github.com/blwatkins/100-days-of-code-challenge-tracker/actions/workflows/node-build.yml)
 
 ![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/blwatkins/100-days-of-code-challenge-tracker) ![GitHub License](https://img.shields.io/github/license/blwatkins/100-days-of-code-challenge-tracker)
 
