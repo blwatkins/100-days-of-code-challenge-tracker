@@ -47,7 +47,6 @@ updates:
           - "patch"
     reviewers:
       - "blwatkins"
-      - "azurepolarbear"
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -59,4 +58,3 @@ updates:
       include: "scope"
     reviewers:
       - "blwatkins"
-      - "azurepolarbear"
