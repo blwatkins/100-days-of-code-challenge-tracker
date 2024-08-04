@@ -44,7 +44,7 @@ function sketch(p5: P5Lib): void {
         );
         manager.addColorSelectors(selectors);
         return manager;
-    }
+    };
 
     p5.setup = (): void => {
         const canvas: P5Lib.Renderer = p5.createCanvas(1080, 1080, p5.WEBGL);
@@ -59,14 +59,14 @@ function sketch(p5: P5Lib): void {
             ds.push(Random.randomFloat(10, 100));
             colors.push(selector.getColor());
         }
-    }
+    };
 
-    p5.draw = () : void => {
+    p5.draw = (): void => {
         for (let i: number = 0; i < 10; i++) {
             p5.fill(colors[i].color);
             p5.ellipse(xs[i], ys[i], ds[i], ds[i]);
         }
-    }
+    };
 }
 
 new P5Lib(sketch);
