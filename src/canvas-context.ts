@@ -22,7 +22,6 @@ import { SketchContext } from '@batpb/genart';
 export class CanvasContext {
     private static _canvas: P5Lib.Renderer | undefined;
     private static _isWebGL: boolean;
-    // TODO - default stroke
 
     public static buildCanvas(width: number, height: number, canvasType?: string) {
         let canvas: P5Lib.Renderer;
@@ -95,5 +94,11 @@ export class CanvasContext {
         }
 
         return min;
+    }
+
+    public static get defaultStroke(): number {
+        const { p5 } = SketchContext;
+        const maxDimension: number = Math.max(p5.width, p5.height);
+        return maxDimension * 0.002;
     }
 }

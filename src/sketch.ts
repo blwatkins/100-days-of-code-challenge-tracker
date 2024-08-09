@@ -29,7 +29,7 @@ import {
 
 import '../assets/styles/sketch.css';
 
-import { CanvasContext } from './canvas-context';
+import { CanvasContext as Canvas } from './canvas-context';
 
 function sketch(p5: P5Lib): void {
     let selector: ColorSelector;
@@ -55,9 +55,14 @@ function sketch(p5: P5Lib): void {
 
     p5.setup = (): void => {
         SketchContext.initialize(p5);
-        CanvasContext.buildCanvas(1152, 1536);
+        // Canvas.buildCanvas(1152, 1536);
+        // Canvas.buildCanvas(500, 500);
+        Canvas.buildCanvas(4096, 4096);
         // 2K - 3:4 Ratio - 1152, 1536
         // 2K - 1:1 Ratio - 2048, 2048
+        // 4K - 1:1 Ratio - 4096, 4096
+
+        console.log(Canvas.defaultStroke);
 
         const manager: ColorSelectorManager = buildColorSelectorManager();
         selector = manager.getRandomColorSelector();
@@ -75,8 +80,8 @@ function sketch(p5: P5Lib): void {
             color.alpha = Math.floor(185);
             const outline: Color = new Color(selector.getColor().color);
             outline.alpha = 200;
-            xs.push(Random.randomFloat(CanvasContext.minWidth + r, CanvasContext.maxWidth - r));
-            ys.push(Random.randomFloat(CanvasContext.minHeight + r, CanvasContext.maxHeight - r));
+            xs.push(Random.randomFloat(Canvas.minWidth + r, Canvas.maxWidth - r));
+            ys.push(Random.randomFloat(Canvas.minHeight + r, Canvas.maxHeight - r));
             ds.push(d);
             colors.push(color);
             outlines.push(outline);
@@ -86,7 +91,10 @@ function sketch(p5: P5Lib): void {
     p5.draw = (): void => {
         if (!isShowing) {
             p5.background(background.color);
-            p5.strokeWeight((max * 0.001) * 5);
+            p5.stroke(255, 0, 0);
+            p5.strokeWeight(Canvas.defaultStroke);
+            p5.line(Canvas.minWidth, Canvas.minHeight, Canvas.maxWidth, Canvas.maxHeight);
+            p5.strokeWeight(Canvas.defaultStroke * 5);
 
             for (let i: number = 0; i < count; i++) {
                 p5.stroke(outlines[i].color);
