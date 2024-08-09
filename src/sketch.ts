@@ -33,7 +33,7 @@ import { CanvasContext as Canvas } from './canvas-context';
 
 function sketch(p5: P5Lib): void {
     let selector: ColorSelector;
-    const count: number = 1;
+    const count: number = 2;
     const xs: number[] = [];
     const ys: number[] = [];
     const ds: number[] = [];
@@ -42,6 +42,9 @@ function sketch(p5: P5Lib): void {
     let isShowing: boolean = false;
     let max: number;
     let background: Color;
+
+    // TODO - select aspect ratio (square, 2:3, 3:2, 3:4, 4:3, 4:5, 5:4, 3:5, 5:3, 9:16, 16:9, 21:9, match-window)
+    // TODO - select resolution (HD, 2K, 4K, 8K, match-window)
 
     const buildColorSelectorManager = (): ColorSelectorManager => {
         const manager: ColorSelectorManager = new ColorSelectorManager();
@@ -55,9 +58,9 @@ function sketch(p5: P5Lib): void {
 
     p5.setup = (): void => {
         SketchContext.initialize(p5);
-        // Canvas.buildCanvas(1152, 1536);
         // Canvas.buildCanvas(500, 500);
-        Canvas.buildCanvas(4096, 4096);
+        Canvas.buildCanvas(1152, 1536); // 2K - 3:4 Ratio
+        // Canvas.buildCanvas(2048, 2048); // 2K - 1:1
         // 2K - 3:4 Ratio - 1152, 1536
         // 2K - 1:1 Ratio - 2048, 2048
         // 4K - 1:1 Ratio - 4096, 4096
@@ -91,9 +94,6 @@ function sketch(p5: P5Lib): void {
     p5.draw = (): void => {
         if (!isShowing) {
             p5.background(background.color);
-            p5.stroke(255, 0, 0);
-            p5.strokeWeight(Canvas.defaultStroke);
-            p5.line(Canvas.minWidth, Canvas.minHeight, Canvas.maxWidth, Canvas.maxHeight);
             p5.strokeWeight(Canvas.defaultStroke * 5);
 
             for (let i: number = 0; i < count; i++) {
@@ -104,6 +104,11 @@ function sketch(p5: P5Lib): void {
 
             isShowing = true;
         }
+    };
+
+    p5.windowResized = (): void => {
+        Canvas.resizeCanvas(2048, 2048);
+        isShowing = false;
     };
 }
 

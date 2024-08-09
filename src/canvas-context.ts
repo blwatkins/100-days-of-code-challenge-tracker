@@ -20,7 +20,6 @@ import P5Lib from 'p5';
 import { SketchContext } from '@batpb/genart';
 
 export class CanvasContext {
-    private static _canvas: P5Lib.Renderer | undefined;
     private static _isWebGL: boolean;
 
     public static buildCanvas(width: number, height: number, canvasType?: string) {
@@ -40,12 +39,6 @@ export class CanvasContext {
         } else {
             canvas.attribute('style', 'height: 100vh;');
         }
-
-        CanvasContext._canvas = canvas;
-    }
-
-    public static get canvas(): P5Lib.Renderer | undefined {
-        return CanvasContext._canvas;
     }
 
     public static get isWebGL(): boolean {
@@ -75,7 +68,7 @@ export class CanvasContext {
     }
 
     public static get minHeight(): number {
-        const { p5 } = SketchContext
+        const { p5 } = SketchContext;
         let min: number = 0;
 
         if (CanvasContext.isWebGL) {
@@ -100,5 +93,19 @@ export class CanvasContext {
         const { p5 } = SketchContext;
         const maxDimension: number = Math.max(p5.width, p5.height);
         return maxDimension * 0.002;
+    }
+
+    public static resizeCanvas(width: number, height: number): void {
+        const { p5 } = SketchContext;
+        p5.resizeCanvas(width, height);
+        const canvas: P5Lib.Element | null = p5.select('canvas');
+
+        if (canvas) {
+            if (width > height) {
+                canvas.attribute('style', 'width: 100vw;');
+            } else {
+                canvas.attribute('style', 'height: 100vh;');
+            }
+        }
     }
 }
