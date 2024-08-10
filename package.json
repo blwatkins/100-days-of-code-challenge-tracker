@@ -1,6 +1,6 @@
 {
   "name": "100-days-of-code-challenge-tracker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A project for creating fun graphics to publish while tracking my #100DaysofCode challenges.",
   "main": "./out/dist/src/sketch.js",
   "scripts": {
