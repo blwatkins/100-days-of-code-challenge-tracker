@@ -30,10 +30,11 @@ import {
 import '../assets/styles/sketch.css';
 
 import { CanvasContext as Canvas } from './canvas-context';
+import { ASPECT_RATIOS } from './aspect-ratios';
 
 function sketch(p5: P5Lib): void {
     let selector: ColorSelector;
-    const count: number = 2;
+    const count: number = 50;
     const xs: number[] = [];
     const ys: number[] = [];
     const ds: number[] = [];
@@ -58,22 +59,21 @@ function sketch(p5: P5Lib): void {
 
     p5.setup = (): void => {
         SketchContext.initialize(p5);
-        // Canvas.buildCanvas(500, 500);
-        Canvas.buildCanvas(1152, 1536); // 2K - 3:4 Ratio
-        // Canvas.buildCanvas(2048, 2048); // 2K - 1:1
-        // 2K - 3:4 Ratio - 1152, 1536
-        // 2K - 1:1 Ratio - 2048, 2048
-        // 4K - 1:1 Ratio - 4096, 4096
+        Canvas.buildCanvas(ASPECT_RATIOS.SQUARE, 2048);
+        // Canvas.buildCanvas(ASPECT_RATIOS['3:4'], 2048);
+        // Canvas.buildCanvas(ASPECT_RATIOS['4:3'], 2048);
+        // Canvas.buildCanvas(ASPECT_RATIOS['9:16'], 2048);
+        // Canvas.buildCanvas(ASPECT_RATIOS['16:9'], 2048);
+        // Canvas.buildCanvas(
+        //     AspectRatioHandler.buildAspectRatio(16, 9),
+        //     1080,
+        //     p5.WEBGL);
 
         console.log(Canvas.defaultStroke);
 
         const manager: ColorSelectorManager = buildColorSelectorManager();
         selector = manager.getRandomColorSelector();
         max = Math.max(p5.width, p5.height);
-        // TODO - color selectors should return a COPY of the color. Not the color object.
-        // TODO - Color copy method
-        // TODO - Color constructor that accepts a Color object
-        // TODO - Fix p5 context retrieval in all classes that use it. You have to get it inside each method so it stays up to date
         background = selector.getBackgroundColor(0.3, 0.5, 0.2);
 
         for (let i: number = 0; i < count; i++) {
@@ -107,7 +107,7 @@ function sketch(p5: P5Lib): void {
     };
 
     p5.windowResized = (): void => {
-        Canvas.resizeCanvas(2048, 2048);
+        Canvas.resizeCanvas();
         isShowing = false;
     };
 }

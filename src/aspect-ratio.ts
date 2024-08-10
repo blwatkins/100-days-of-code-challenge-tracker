@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023-2024 brittni and the polar bear LLC.
+ * Copyright (C) 2024 brittni and the polar bear LLC.
  *
  * This file is a part of brittni and the polar bear's Generative Art Project Template,
  * which is released under the GNU Affero General Public License, Version 3.0.
@@ -15,33 +15,8 @@
  * See the GNU Affero General Public License for more details.
  */
 
-/*
- * To remove borders and scroll bars from the sketch page,
- * and to keep canvas in the center of the browser window at all times.
- */
-
-html, body {
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-}
-
-main {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-canvas {
-    grid-row: 1;
-    grid-column: 1;
-    max-width: 100vw;
-    max-height: 100vh;
+export interface AspectRatio {
+    readonly NAME: string;
+    readonly WIDTH_RATIO: number;
+    readonly HEIGHT_RATIO: number
 }

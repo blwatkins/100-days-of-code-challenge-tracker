@@ -18,26 +18,36 @@
 import P5Lib from 'p5';
 
 import { SketchContext } from '@batpb/genart';
+import { AspectRatio } from './aspect-ratio';
+import { AspectRatioHandler } from './aspect-ratio-handler';
+import { ASPECT_RATIOS } from './aspect-ratios';
 
 export class CanvasContext {
-    private static _isWebGL: boolean;
+    private static _activeCanvas: boolean = false;
+    private static _isWebGL: boolean = false;
+    private static _aspectRatio: AspectRatio = ASPECT_RATIOS.SQUARE;
+    private static _resolution: number = 1080;
 
-    public static buildCanvas(width: number, height: number, canvasType?: string) {
-        let canvas: P5Lib.Renderer;
-        const { p5 } = SketchContext;
+    public static buildCanvas(aspectRatio: AspectRatio, resolution: number, canvasType?: string) {
+        if (!CanvasContext._activeCanvas) {
+            CanvasContext._aspectRatio = aspectRatio;
+            CanvasContext._resolution = resolution;
 
-        if (canvasType && canvasType === p5.WEBGL) {
-            canvas = p5.createCanvas(width, height, p5.WEBGL);
-            CanvasContext._isWebGL = true;
-        } else {
-            canvas = p5.createCanvas(width, height);
-            CanvasContext._isWebGL = false;
-        }
+            const { p5 } = SketchContext;
+            const ratioHandler: AspectRatioHandler = new AspectRatioHandler(CanvasContext._aspectRatio, CanvasContext._resolution);
+            const width: number = ratioHandler.width;
+            const height: number = ratioHandler.height;
 
-        if (width > height) {
-            canvas.attribute('style', 'width: 100vw;');
-        } else {
-            canvas.attribute('style', 'height: 100vh;');
+            if (canvasType && canvasType === p5.WEBGL) {
+                p5.createCanvas(width, height, p5.WEBGL);
+                CanvasContext._isWebGL = true;
+            } else {
+                p5.createCanvas(width, height);
+                CanvasContext._isWebGL = false;
+            }
+
+            CanvasContext.decorateCanvas();
+            CanvasContext._activeCanvas = true;
         }
     }
 
@@ -95,16 +105,38 @@ export class CanvasContext {
         return maxDimension * 0.002;
     }
 
-    public static resizeCanvas(width: number, height: number): void {
+    public static resizeCanvas(): void {
+        CanvasContext.decorateCanvas();
+    }
+
+    public static updateAspectRatio(aspectRatio: AspectRatio): void {
+        CanvasContext._aspectRatio = aspectRatio;
+
         const { p5 } = SketchContext;
+        const ratioHandler: AspectRatioHandler = new AspectRatioHandler(CanvasContext._aspectRatio, CanvasContext._resolution);
+        const width: number = ratioHandler.width;
+        const height: number = ratioHandler.height;
+
         p5.resizeCanvas(width, height);
+        CanvasContext.decorateCanvas();
+    }
+
+    // public static updateResolution(resolution: number): void {
+    //     // TODO - implement method
+    // }
+
+    private static decorateCanvas(): void {
+        const { p5 } = SketchContext;
         const canvas: P5Lib.Element | null = p5.select('canvas');
 
         if (canvas) {
-            if (width > height) {
-                canvas.attribute('style', 'width: 100vw;');
-            } else {
+            const goalRatio: number = CanvasContext._aspectRatio.WIDTH_RATIO / CanvasContext._aspectRatio.HEIGHT_RATIO;
+            const actualRatio: number = p5.windowWidth / p5.windowHeight;
+
+            if (goalRatio < actualRatio) {
                 canvas.attribute('style', 'height: 100vh;');
+            } else {
+                canvas.attribute('style', 'width: 100vw;');
             }
         }
     }
