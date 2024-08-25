@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2023-2024 brittni and the polar bear LLC.
  *
- * This file is a part of brittni and the polar bear's Generative Art Project Template,
+ * This file is a part of brittni watkins' #100DaysOfCode Tracker project,
  * which is released under the GNU Affero General Public License, Version 3.0.
  * You may not use this file except in compliance with the license.
  *
@@ -34,7 +34,7 @@ import { ASPECT_RATIOS } from './aspect-ratios';
 
 function sketch(p5: P5Lib): void {
     let selector: ColorSelector;
-    const count: number = 50;
+    const count: number = 3;
     const xs: number[] = [];
     const ys: number[] = [];
     const ds: number[] = [];
@@ -59,8 +59,8 @@ function sketch(p5: P5Lib): void {
 
     p5.setup = (): void => {
         SketchContext.initialize(p5);
-        Canvas.buildCanvas(ASPECT_RATIOS.SQUARE, 2048);
-        // Canvas.buildCanvas(ASPECT_RATIOS['3:4'], 2048);
+        // Canvas.buildCanvas(ASPECT_RATIOS.SQUARE, 2048);
+        Canvas.buildCanvas(ASPECT_RATIOS['3:4'], 2048);
         // Canvas.buildCanvas(ASPECT_RATIOS['4:3'], 2048);
         // Canvas.buildCanvas(ASPECT_RATIOS['9:16'], 2048);
         // Canvas.buildCanvas(ASPECT_RATIOS['16:9'], 2048);
