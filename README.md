@@ -1,5 +1,5 @@
-> [!CAUTION]
-> # This project has been archived. It is now read-only.
+> [!WARNING]
+> # WARNING: This project has been ARCHIVED. It is now READ-ONLY.
 
 # #100DaysOfCode challenge tracker
 
