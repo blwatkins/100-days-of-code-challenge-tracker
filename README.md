@@ -1,3 +1,6 @@
+> [!CAUTION]
+> # This project has been archived. It is now read-only.
+
 # #100DaysOfCode challenge tracker
 
 Copyright (C) 2024 brittni and the polar bear LLC.
