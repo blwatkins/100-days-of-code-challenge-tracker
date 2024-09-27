@@ -55,7 +55,7 @@ export default {
             output: 'bundle.css'
         }),
         html({
-            title: 'Generative Art Template',
+            title: '#100DaysOfCode',
             publicPath: './'
         }),
         dev && serve({
