@@ -39,7 +39,7 @@
   "homepage": "https://github.com/blwatkins/100-days-of-code-challenge-tracker#readme",
   "dependencies": {
     "@batpb/genart": "^2.0.0-rc2",
-    "p5": "^1.11.2"
+    "p5": "^1.11.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
