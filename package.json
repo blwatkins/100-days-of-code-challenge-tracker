@@ -39,25 +39,24 @@
   "homepage": "https://github.com/blwatkins/100-days-of-code-challenge-tracker#readme",
   "dependencies": {
     "@batpb/genart": "^2.0.0-rc2",
-    "p5": "^1.11.3"
+    "p5": "^1.11.9"
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
-    "@stylistic/eslint-plugin": "^3.1.0",
-    "@types/eslint__js": "^8.42.3",
+    "@eslint/js": "^9.33.0",
+    "@stylistic/eslint-plugin": "^5.2.3",
     "@types/p5": "^1.7.6",
     "css-loader": "^7.1.2",
-    "eslint": "^9.20.1",
-    "eslint-plugin-es-x": "^8.4.1",
-    "eslint-plugin-n": "^17.15.1",
+    "eslint": "^9.33.0",
+    "eslint-plugin-es-x": "^9.0.0",
+    "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-security": "^3.0.1",
-    "html-webpack-plugin": "^5.6.3",
-    "mini-css-extract-plugin": "^2.9.2",
+    "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
     "ts-loader": "^9.5.2",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.1",
-    "webpack": "^5.98.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0",
+    "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0"
+    "webpack-dev-server": "^5.2.2"
   }
 }

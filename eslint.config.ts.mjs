@@ -38,7 +38,7 @@ export default tsEslint.config(
     es_x.configs['flat/restrict-to-es2022'],
     node.configs['flat/recommended'],
     security.configs.recommended,
-    stylistic.configs['recommended-flat'],
+    stylistic.configs['recommended'],
     ...tsEslint.configs.recommendedTypeChecked,
     ...tsEslint.configs.strictTypeChecked,
     ...tsEslint.configs.stylisticTypeChecked,
@@ -47,8 +47,7 @@ export default tsEslint.config(
             ecmaVersion: 2022,
             sourceType: 'module',
             parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname
+                projectService: true
             }
         },
         rules: {
@@ -150,7 +149,7 @@ export default tsEslint.config(
                 'single',
                 {
                     avoidEscape: true,
-                    allowTemplateLiterals: true
+                    allowTemplateLiterals: 'always'
                 }
             ],
 
@@ -167,9 +166,7 @@ export default tsEslint.config(
             /* typescript-eslint */
 
             'dot-notation': 'off',
-            '@typescript-eslint/dot-notation': ['error', {
-                allowKeywords: false
-            }],
+            '@typescript-eslint/dot-notation': 'error',
 
             'no-array-constructor': 'off',
             '@typescript-eslint/no-array-constructor': 'error',
@@ -206,7 +203,7 @@ export default tsEslint.config(
 
             '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 
-            '@typescript-eslint/no-explicit-any': 'off',
+            '@typescript-eslint/no-explicit-any': 'error',
 
             '@typescript-eslint/no-extraneous-class': ['error', {
                 allowStaticOnly: true
@@ -214,7 +211,7 @@ export default tsEslint.config(
 
             '@typescript-eslint/no-inferrable-types': 'off',
 
-            '@typescript-eslint/prefer-for-of': 'off',
+            '@typescript-eslint/prefer-for-of': 'error',
 
             '@typescript-eslint/restrict-template-expressions': ['error', {
                 allowNumber: true,
